@@ -22,14 +22,12 @@ def morse_to_fence(morse_sentence):
     morse = morse_sentence.strip().split("/")
     for code in morse:
         fence.append(morse_code[code])
-    print("".join(fence))
     return "".join(fence)
 
 
 def fence_to_telegragh(fence):
     telegragh = ""
     cut = int(len(fence)/2)
-    print(cut)
     x = fence[0:cut]
     y = fence[cut:len(fence)]
     for a, b in zip(x, y):
@@ -40,7 +38,6 @@ def fence_to_telegragh(fence):
 def telegragh_to_hanzi(telegragh, telegragh_code):
     # 电报码转换成汉字
     characters = ""
-    print(telegragh)
     for i in range(0, len(telegragh), 4):
         characters += telegragh_code[telegragh[i:i+4]]
     return characters
@@ -66,15 +63,16 @@ def encrypt_to_string(morse_sentence):
     telegragh_code = read_telegragh_code()
     fence = morse_to_fence(morse_sentence)
     telegragh = fence_to_telegragh(fence)
-    print(telegragh)
     characters = telegragh_to_hanzi(telegragh, telegragh_code)
-    print(characters)
     return characters
 
 if __name__ == "__main__":
     read_and_write_article(r"article_code.txt", r"code_to_article.txt")
-    string = encrypt_to_string("***--/****-/*****/*****/-----/**---/----*/--***/***--/***--/***--/--***/-----/**---/"
-                               "****-/-----/-----/--***/****-/**---/-----/-----/*----/--***/*----/****-/----*/---**/"
-                               "***--/-----/--***/*----/--***/*----/----*/-****/----*/**---/*----/**---/-----/**---/"
-                               "*----/****-/-****/--***/****-/----*/-----/---**/*----/**---/----*/**---/----*/**---")
+    string = encrypt_to_string("**---/*****/**---/---**/----*/-----/--***/***--/*----/"
+                               "**---/***--/**---/--***/***--/----*/--***/**---/*****/"
+                               "*----/---**/-----/--***/-----/****-/-----/-----/--***/"
+                               "----*/----*/---**/-----/***--/*****/----*/---**/*----/"
+                               "***--/***--/****-/-----/-----/----*/*****/***--/----*/"
+                               "-****/-----/***--/--***/***--/*----/*----/-----/---**/"
+                               "-----/---**/****-/****-/----*/**---")
     print(string)

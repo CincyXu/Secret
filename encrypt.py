@@ -77,5 +77,6 @@ def string_to_encrypt(sentence):
 
 
 if __name__ == "__main__":
-    read_and_write_article(r"article.txt", r"article_code.txt")
-    print(string_to_encrypt("XXX是个大混蛋！"))
+    # read_and_write_article(r"article.txt", r"article_code.txt")
+    # print(string_to_encrypt("XXX是个大混蛋！"))
+    print(string_to_encrypt("我有一头小毛驴，我从来也不骑！"))
