@@ -78,4 +78,4 @@ def string_to_encrypt(sentence):
 
 if __name__ == "__main__":
     read_and_write_article(r"article.txt", r"article_code.txt")
-    print(string_to_encrypt("丁胜是个大混蛋！"))
+    print(string_to_encrypt("XXX是个大混蛋！"))
