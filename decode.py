@@ -8,7 +8,7 @@ import codecs
 def read_telegragh_code():
     # 加载电报码
     telegragh_code = {}
-    with codecs.open(r"telegraph_code1.txt", "r", "utf-8") as fr:
+    with codecs.open(r"telegraph_code.txt", "r", "utf-8") as fr:
         for line in fr:
             code = line.strip().split(" ")
             telegragh_code[code[1]] = code[0]
@@ -38,6 +38,7 @@ def fence_to_telegragh(fence):
 
 
 def telegragh_to_hanzi(telegragh, telegragh_code):
+    # 电报码转换成汉字
     characters = ""
     print(telegragh)
     for i in range(0, len(telegragh), 4):
@@ -71,8 +72,7 @@ def encrypt_to_string(morse_sentence):
     return characters
 
 if __name__ == "__main__":
-    # sentence = "所有的热情最终都会被稀释！"
-    # read_and_write_article(r"article_code.txt", r"code_to_article.txt")
+    read_and_write_article(r"article_code.txt", r"code_to_article.txt")
     string = encrypt_to_string("***--/****-/*****/*****/-----/**---/----*/--***/***--/***--/***--/--***/-----/**---/"
                                "****-/-----/-----/--***/****-/**---/-----/-----/*----/--***/*----/****-/----*/---**/"
                                "***--/-----/--***/*----/--***/*----/----*/-****/----*/**---/*----/**---/-----/**---/"
